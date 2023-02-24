@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import Home from './Components/Home/Home';
 import Footer from './Components/Footer/Footer';
+import Getstarted from './Components/Getstarted/Getstarted';
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
       </header> */}
 
     <Navbar />
-    <Home />
+    {/* <Home /> */}
+    <Getstarted />
     <Footer />
     </div>
   );
