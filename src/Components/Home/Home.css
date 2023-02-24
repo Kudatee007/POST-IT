@@ -6,6 +6,9 @@
   padding-bottom: 80px;
   box-sizing: border-box;
 }
+.span {
+  color: rgba(0, 134, 176, 1);
+}
 .stayCurious > h1 {
   font-family: "Harmattan";
   font-style: normal;

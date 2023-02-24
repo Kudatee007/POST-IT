@@ -1,6 +1,5 @@
 import React from "react";
 import "./Home.css";
-import homeImg from "../../img/homeimg.svg";
 import lifestyle from "../../img/lifestyle.svg";
 import nature from "../../img/nature.svg";
 import tech from "../../img/technology.svg";
@@ -42,10 +41,12 @@ const Home = () => {
         </div>
 
         <div className="tryPost">
-          <h1>Try Postit.</h1>
-          <p>Do you want to write or discover stories from writers on any topic?</p>
+          <h1>Try Post<span className="span">it</span>.</h1>
+          <p>
+            Do you want to write or discover stories from writers on any topic?
+          </p>
           <div className="post">
-            <input type="text" placeholder="Enter Email address"/>
+            <input type="text" placeholder="Enter Email address" />
             <button>Get Started</button>
           </div>
         </div>
