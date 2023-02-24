@@ -3,17 +3,20 @@ import "./Home.css";
 import lifestyle from "../../img/lifestyle.svg";
 import nature from "../../img/nature.svg";
 import tech from "../../img/technology.svg";
+import Navbar from "../Navbar/Navbar"
+import { Link } from "react-router-dom"
 
 const Home = () => {
   return (
     <div>
+      <Navbar />
       <div className="stayCurious">
         <h1>Stay Curious.</h1>
         <p>
           Lorem ipsum dolor sit ameetur adipiscing elit. Coctetur egestas massa
           velit aliquam. Molestim bibendum hnt ipsum orci, platea aliquam id ut.{" "}
         </p>
-        <button className="btnHome">Get Started</button>
+       <Link to="/create" className="link"> <button className="btnHome">Get Started</button></Link>
       </div>
       <div className="containBox">
         <div className="gridBox">
@@ -47,7 +50,7 @@ const Home = () => {
           </p>
           <div className="post">
             <input type="text" placeholder="Enter Email address" />
-            <button>Get Started</button>
+            <Link to="/create" className="link"><button className="btn_create">Get Started</button></Link>
           </div>
         </div>
       </div>

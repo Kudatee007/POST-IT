@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
-import "./Navbar.css"
+import React, { useState } from 'react';
 import logo from "../../img/Postit 1.svg"
 import cancel from "../../img/cancel.svg"
 import hamburger from "../../img/hamburger.svg"
-import { Link } from "react-router-dom"
+import profilePics from "../../img/profilepics.svg"
+import "../Navbar/Navbar.css"
+import{ Link } from "react-router-dom"
 
-const Navbar = () => {
+const Navbar2 = () => {
     const [expand, setExpand] = useState(true)
 
     const navHandler = () => {
@@ -18,8 +19,7 @@ const Navbar = () => {
         <div className={expand ? 'nav-bar' : 'nav-bar nav-bar-NX'}>
             <h3 onClick={navHandler}>Stories</h3>
             <h3 onClick={navHandler}>Contact</h3>
-            <Link to="/login" className='link'><h3 onClick={navHandler}>Sign In</h3></Link>
-            <Link to="/create" className='link'><button className='navBtn' onClick={navHandler}>Get Started</button></Link>
+            <img src={profilePics} alt="" />
             <img src={cancel} alt="" className='cancel' onClick={navHandler}/>
         </div>
         <img src={hamburger} alt="" className='hamburger' onClick={navHandler}/>
@@ -27,4 +27,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar2

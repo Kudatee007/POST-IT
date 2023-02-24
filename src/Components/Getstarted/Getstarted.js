@@ -1,9 +1,13 @@
 import React from "react";
 import "./Getstarted.css";
+import Navbar from "../Navbar/Navbar"
+import { Link } from "react-router-dom"
 
 const Getstarted = () => {
   return (
-    <div className="getStarted">
+    <div>
+      <Navbar />
+      <div className="getStarted">
       <div className="started">
         <div>
           <h1 className="join">
@@ -25,9 +29,10 @@ const Getstarted = () => {
             <input type="password" id="password" />
           </div>
           <button className="btnContinue">Continue</button>
-          <h6 className="alreadyStart">Already have an account? <span className="span">Sign In</span></h6>
+          <Link to="/login" className="link1"><h6 className="alreadyStart">Already have an account? <span className="span">Sign In</span></h6></Link>
         </div>
       </div>
+    </div>
     </div>
   );
 };
