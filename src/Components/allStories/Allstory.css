@@ -1,0 +1,106 @@
+.WelcomeStory {
+  display: flex;
+  gap: 100px;
+  padding: 50px 100px;
+  align-items: center;
+  background: #f5f6f8;
+}
+.welcomeStory1 > h1 {
+  font-family: "Harmattan";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 65px;
+  line-height: 79px;
+  color: #292929;
+  padding-bottom: 20px;
+}
+.welcomeStory1 > p {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.02em;
+  color: #000000;
+}
+.tag_s {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 35px;
+  letter-spacing: 0.02em;
+  color: #fdfeff;
+  width: 84px;
+  height: 34px;
+  text-align: center;
+  background: #6397e6;
+  border-radius: 5px;
+}
+.biggest {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 31px;
+  letter-spacing: 0.02em;
+  color: #292929;
+  width: 40ch;
+}
+.kudaT {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 20px 0;
+}
+.kudaT > h4 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 35px;
+  letter-spacing: 0.02em;
+  color: #9a9a9a;
+}
+.kudaspan {
+  color: rgba(41, 41, 41, 1);
+}
+.storyPara {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 27px;
+  letter-spacing: 0.02em;
+  width: 50ch;
+  color: #7b7b7b;
+}
+
+@media (max-width: 1200px) {
+  .scrabbleStory {
+    width: 100%;
+  }
+}
+@media (max-width: 1050px) {
+  .WelcomeStory {
+    flex-direction: column;
+  }
+}
+@media (max-width: 540px) {
+  .WelcomeStory {
+    padding: 50px 50px;
+  }
+  .welcomeStory1 > h1 {
+    font-size: 55px;
+    line-height: 60px;
+  }
+  .welcomeStory1 > p {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+@media (max-width: 540px) {
+  .WelcomeStory {
+    padding: 40px 40px;
+  }
+}
