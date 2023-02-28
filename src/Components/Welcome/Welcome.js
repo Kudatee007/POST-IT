@@ -2,6 +2,7 @@ import React from "react";
 import "./Welcome.css"
 import scrabble from "../../img/srabblepics.svg";
 import Navbar from '../Navbar2/Navbar2';
+import { Link } from "react-router-dom"
 
 const Welcome = () => {
   return (
@@ -16,7 +17,7 @@ const Welcome = () => {
           velit aliquam. Molestim bibendum hnt ipsum orci, platea aliquam id ut.
         </p>
         <div className="btn_S">
-          <button className="btnStory">My Stories</button>
+          <Link to="/mystories"><button className="btnStory">My Stories</button></Link>
           <button className="btnFeed">Go to Feed</button>
         </div>
       </div>
