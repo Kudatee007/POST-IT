@@ -16,7 +16,7 @@ const Home = () => {
           Lorem ipsum dolor sit ameetur adipiscing elit. Coctetur egestas massa
           velit aliquam. Molestim bibendum hnt ipsum orci, platea aliquam id ut.{" "}
         </p>
-       <Link to="/create" className="link"> <button className="btnHome">Get Started</button></Link>
+       <Link to="/signup" className="link"> <button className="btnHome">Get Started</button></Link>
       </div>
       <div className="containBox">
         <div className="gridBox">
@@ -50,7 +50,7 @@ const Home = () => {
           </p>
           <div className="post">
             <input type="text" placeholder="Enter Email address" />
-            <Link to="/create" className="link"><button className="btn_create">Get Started</button></Link>
+            <Link to="/signup" className="link"><button className="btn_create">Get Started</button></Link>
           </div>
         </div>
       </div>

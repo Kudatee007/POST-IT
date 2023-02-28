@@ -68,7 +68,7 @@ const Signin = () => {
                 Continue
               </button>
             </form>
-            <Link to="/create" className="link1">
+            <Link to="/signup" className="link1">
               <h6 className="alreadyStart2">
                 No account? <span className="span">Sign Up</span>
               </h6>

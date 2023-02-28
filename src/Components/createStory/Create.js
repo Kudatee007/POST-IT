@@ -8,36 +8,55 @@ const Create = () => {
   const [title, setTitle] = useState("");
   const [story, setStory] = useState("");
   const [tags, setTags] = useState("");
+  const [image, setImage] = useState("");
 
   const url = "http://localhost:9000/api/v1/post";
+  const token = JSON.parse(localStorage.getItem("token"));
+  console.log(token);
 
   const redirect = useNavigate();
 
   const createPost = async (e) => {
     try {
       e.preventDefault();
+      console.log('in the function');
       const res = await fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, story, tags })
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
 
+        body: JSON.stringify({ title, story, tags, image }),
       });
       const data = await res.json();
       console.log(data);
 
-      redirect("/login");
+      redirect("/mystories");
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <div>
+    <div id="task3Top">
       <Navbar2 />
       <div className="task3">
         <div className="newTask">
           <h1>Create Story</h1>
         </div>
-        <form onSubmit={createPost}>
+        <form encType="multipart/form-data" onSubmit={createPost}>
+          <div className="titleTask">
+            <img src={edit} alt="" />
+            <input
+              type="file"
+              id="taskTitle"
+              placeholder="select image"
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+              required
+            />
+          </div>
+
           <div className="titleTask">
             <img src={edit} alt="" />
             <input
@@ -76,9 +95,11 @@ const Create = () => {
             />
           </div>
 
-          <button type="submit" className="btnDone">
-            Publish Story
-          </button>
+          <div className="Btndone">
+            <button type="submit" className="btnDone">
+              Publish Story
+            </button>
+          </div>
         </form>
         <a href="#task3Top">
           <h5 className="toTop">Back To Top</h5>

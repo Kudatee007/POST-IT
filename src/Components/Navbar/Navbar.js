@@ -19,7 +19,7 @@ const Navbar = () => {
             <h3 onClick={navHandler}>Stories</h3>
             <h3 onClick={navHandler}>Contact</h3>
             <Link to="/login" className='link'><h3 onClick={navHandler}>Sign In</h3></Link>
-            <Link to="/create" className='link'><button className='navBtn' onClick={navHandler}>Get Started</button></Link>
+            <Link to="/signup" className='link'><button className='navBtn' onClick={navHandler}>Get Started</button></Link>
             <img src={cancel} alt="" className='cancel' onClick={navHandler}/>
         </div>
         <img src={hamburger} alt="" className='hamburger' onClick={navHandler}/>

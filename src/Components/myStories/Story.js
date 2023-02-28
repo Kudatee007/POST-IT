@@ -8,12 +8,19 @@ const Story = () => {
   const [isLoading, setIsLoading] = useState(true);
   const url = "http://localhost:9000/api/v1/post";
 
+  const token =  JSON.parse(localStorage.getItem("token"))
+  console.log(token);
+
   const fetchPost = async () => {
-    const res = await fetch(url);
-    const data = res.json();
+    const res = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    const data = await res.json();
     console.log(data);
     setIsLoading(false);
-    setPosts(data.posts);
+    setPosts(data.post);
   };
 
   useEffect(() => {
@@ -26,8 +33,12 @@ const Story = () => {
     const url = `http://localhost:9000/api/v1/post/${id}`;
     fetch(url, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': `Bearer ${token}`
+      }
     }).then(() => {
-      redirect("/");
+      redirect("/welcome");
     });
   };
   return (
@@ -36,12 +47,12 @@ const Story = () => {
       <div className="Stories">
         <div className="myStories">
           <h1>My Stories</h1>
-          <Link to="create">
+          <Link to="/create">
             <button className="btnWrite">Write Story</button>
           </Link>
         </div>
         <div className="storyNav">
-          <h2>All</h2>
+          <h2>All</h2>``
           <h3>Drafts</h3>
           <h3>Published</h3>
         </div>
@@ -57,7 +68,7 @@ const Story = () => {
                 <p className="p2">Published</p>
               </div>
               <div className="storyBtn">
-                <button className="storyEdit">Edit Post</button>
+                <Link to={`/edit/${_id}`}><button className="storyEdit">Edit Post</button></Link>
                 <button
                   className="storyDelete"
                   onClick={() => handleDelete(_id)}

@@ -8,23 +8,27 @@ const Getstarted = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
   const url = "http://localhost:9000/api/v1/register";
 
   const redirect = useNavigate();
 
   const createUser = async (e) => {
+    e.preventDefault();
     try {
-      // e.prevenDefault();
       const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password }),
       });
 
-      const data = res.join;
+      const data = await res.json();
       console.log(data);
-      redirect("/login");
+      if (data.token) {
+        redirect("/login");
+      }
+      if (data.errors) {
+        console.log(data.errors);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -53,13 +57,25 @@ const Getstarted = () => {
               </div>
               <div className="inputInfo">
                 <label htmlFor="email">Your Email Address</label>
-                <input type="text" id="email" value={email} onChange={(e)=> setEmail(e.target.value)} />
+                <input
+                  type="text"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
               <div className="inputInfo">
                 <label htmlFor="password">Password</label>
-                <input type="password" id="password" value={password} onChange={(e)=> setPassword(e.target.value)}/>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </div>
-              <button className="btnContinue" type="submit">Continue</button>
+              <button className="btnContinue" type="submit">
+                Continue
+              </button>
             </form>
             <Link to="/login" className="link1">
               <h6 className="alreadyStart">
