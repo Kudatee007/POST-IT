@@ -23,7 +23,17 @@
   letter-spacing: 0.02em;
   color: #000000;
 }
+.imgTag {
+  position: relative;
+}
+.imgTag > img {
+  width: 100%;
+  height: 296px;
+}
 .tag_s {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 600;
@@ -45,7 +55,6 @@
   line-height: 31px;
   letter-spacing: 0.02em;
   color: #292929;
-  width: 40ch;
 }
 .kudaT {
   display: flex;
@@ -58,7 +67,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 35px;
+  line-height: 1px;
   letter-spacing: 0.02em;
   color: #9a9a9a;
 }
@@ -70,20 +79,70 @@
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
-  line-height: 27px;
+  line-height: 23px;
   letter-spacing: 0.02em;
-  width: 50ch;
+  width: 40ch;
   color: #7b7b7b;
 }
 
+.rectangle {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 80px 0;
+  row-gap: 60px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+}
+.tangle {
+  width: 25.3%;
+}
+.readMore {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  padding-top: 18px;
+  letter-spacing: 0.02em;
+  color: #0086b0;
+}
+/* @media (max-width: 1400px) {
+  .rectangle {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+} */
 @media (max-width: 1200px) {
   .scrabbleStory {
     width: 100%;
+  }
+  .tangle {
+    width: 30%;
   }
 }
 @media (max-width: 1050px) {
   .WelcomeStory {
     flex-direction: column;
+  }
+}
+@media (max-width: 920px) {
+  .storyPara {
+    width: 38ch;
+  }
+}
+@media (max-width: 760px) {
+  .storyPara {
+    width: 33ch;
+  }
+}
+@media (max-width: 620px) {
+  .storyPara {
+    width: auto;
+  }
+  .tangle {
+    width: 60%;
   }
 }
 @media (max-width: 540px) {
@@ -98,9 +157,24 @@
     font-size: 18px;
     line-height: 26px;
   }
+  .tangle {
+    width: 70%;
+  }
+  .imgTag > img {
+    height: 250px;
+  }
+  .rectangle {
+    gap: 60px;
+  }
 }
-@media (max-width: 540px) {
+@media (max-width: 440px) {
   .WelcomeStory {
     padding: 40px 40px;
+  }
+  .tangle {
+    width: 80%;
+  }
+  .imgTag > img {
+    height: 200px;
   }
 }

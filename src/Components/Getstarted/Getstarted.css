@@ -47,6 +47,9 @@
   border: none;
   border-bottom: 1px solid #727272;
   height: 43px;
+  padding-left: 20px;
+  box-sizing: border-box;
+  font-size: 20px;
 }
 .btnContinue {
   width: 100%;

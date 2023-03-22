@@ -1,0 +1,142 @@
+.pTags {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17.0866px;
+  letter-spacing: 0.02em;
+  color: #fdfeff;
+  width: 130.48px;
+  padding: 9px 0;
+  text-align: center;
+  background: #6397e6;
+  border-radius: 7.76662px;
+}
+.pTitle {
+  font-family: "Harmattan";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 62.133px;
+  line-height: 70px;
+  letter-spacing: 0.02em;
+  color: #292929;
+  padding-top: 25px;
+}
+.pCreated {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24.8532px;
+  line-height: 54px;
+  letter-spacing: 0.02em;
+  color: #9a9a9a;
+}
+.crea {
+  color: rgba(41, 41, 41, 1);
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24.8532px;
+  line-height: 54px;
+  letter-spacing: 0.02em;
+}
+.pImage {
+  width: 100%;
+  height: 537.45px;
+  padding-bottom: 55px;
+}
+.pStory {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 27.9598px;
+  line-height: 35px;
+  letter-spacing: 0.02em;
+  color: #7b7b7b;
+}
+.line1 {
+  margin-top: 20px;
+  margin-bottom: 45px;
+  border: 1.55332px solid #dddddd;
+}
+.postContainer {
+  padding: 50px 70px;
+}
+.back {
+  border: 1.55332px solid #dddddd;
+  padding: 10px;
+  border-radius: 50%;
+  width: 15px;
+  position: fixed;
+  top: 80px;
+}
+@media (max-width: 1220px) {
+  .postContainer {
+    padding: 50px 50px;
+  }
+}
+@media (max-width: 913px) {
+  .pImage {
+    height: 387.45px;
+  }
+}
+@media (max-width: 768px) {
+  .pImage {
+    height: 347.45px;
+  }
+  .pTitle {
+    font-size: 52.133px;
+    line-height: 60px;
+  }
+}
+@media (max-width: 620px) {
+  .pImage {
+    height: 327.45px;
+  }
+  .pTitle {
+    font-size: 38px;
+    line-height: 60px;
+  }
+  .pCreated {
+    font-size: 18.8532px;
+  }
+  .crea {
+    font-size: 18.8532px;
+  }
+  .pStory {
+    font-size: 22.9598px;
+    line-height: 28px;
+  }
+  .postContainer {
+    padding: 50px 30px;
+  }
+}
+@media (max-width: 460px) {
+    .pImage {
+      height: 200.45px;
+      padding-bottom: 35px;
+    }
+    .pTitle {
+      font-size: 33px;
+      line-height: 50px;
+    }
+    .pCreated {
+      font-size: 15.8532px;
+    }
+    .crea {
+      font-size: 16.8532px;
+    }
+    .pStory {
+      font-size: 18.9598px;
+      line-height: 24px;
+    }
+    .postContainer {
+      padding: 50px 30px;
+    }
+    .line1 {
+        margin-top: 0px;
+        margin-bottom: 30px;
+    }
+    .postContainer {
+        padding: 50px 20px;
+      }
+  }

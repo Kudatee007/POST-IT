@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./Story.css";
 import Navbar2 from "../Navbar2/Navbar2";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Story = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const url = "http://localhost:9000/api/v1/post";
+  const { userId } = useParams();
+  // const url = "http://localhost:9000/api/v1/post";
+  const url = `http://localhost:9000/api/v1/post/${userId}`;
 
-  const token =  JSON.parse(localStorage.getItem("token"))
-  console.log(token);
+  const token = JSON.parse(localStorage.getItem("token"));
 
   const fetchPost = async () => {
     const res = await fetch(url, {
       headers: {
-        'Authorization': `Bearer ${token}`
-      }
+        method: "GET",
+        Authorization: `Bearer ${token}`,
+      },
     });
     const data = await res.json();
-    console.log(data);
     setIsLoading(false);
     setPosts(data.post);
   };
@@ -35,8 +36,8 @@ const Story = () => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${token}`
-      }
+        Authorization: `Bearer ${token}`,
+      },
     }).then(() => {
       redirect("/welcome");
     });
@@ -68,7 +69,9 @@ const Story = () => {
                 <p className="p2">Published</p>
               </div>
               <div className="storyBtn">
-                <Link to={`/edit/${_id}`}><button className="storyEdit">Edit Post</button></Link>
+                <Link to={`/edit/${_id}`}>
+                  <button className="storyEdit">Edit Post</button>
+                </Link>
                 <button
                   className="storyDelete"
                   onClick={() => handleDelete(_id)}

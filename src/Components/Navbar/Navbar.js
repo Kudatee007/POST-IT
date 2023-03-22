@@ -16,7 +16,7 @@ const Navbar = () => {
     <div className='navBar'>
         <Link to="/"><img src={logo} alt="" /></Link>
         <div className={expand ? 'nav-bar' : 'nav-bar nav-bar-NX'}>
-            <h3 onClick={navHandler}>Stories</h3>
+            <Link to="/stories" className='link'><h3 onClick={navHandler}>Stories</h3></Link>
             <h3 onClick={navHandler}>Contact</h3>
             <Link to="/login" className='link'><h3 onClick={navHandler}>Sign In</h3></Link>
             <Link to="/signup" className='link'><button className='navBtn' onClick={navHandler}>Get Started</button></Link>

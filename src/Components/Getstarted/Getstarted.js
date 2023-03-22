@@ -14,6 +14,7 @@ const Getstarted = () => {
 
   const createUser = async (e) => {
     e.preventDefault();
+    
     try {
       const res = await fetch(url, {
         method: "POST",
@@ -22,7 +23,6 @@ const Getstarted = () => {
       });
 
       const data = await res.json();
-      console.log(data);
       if (data.token) {
         redirect("/login");
       }

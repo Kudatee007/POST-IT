@@ -8,29 +8,31 @@ const Create = () => {
   const [title, setTitle] = useState("");
   const [story, setStory] = useState("");
   const [tags, setTags] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
 
   const url = "http://localhost:9000/api/v1/post";
   const token = JSON.parse(localStorage.getItem("token"));
-  console.log(token);
 
   const redirect = useNavigate();
 
   const createPost = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("story", story);
+    formData.append("tags", tags);
+    formData.append("image", image);
+
     try {
-      e.preventDefault();
-      console.log('in the function');
+      console.log("in the function");
       const res = await fetch(url, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-
-        body: JSON.stringify({ title, story, tags, image }),
+        body: formData,
       });
       const data = await res.json();
-      console.log(data);
 
       redirect("/mystories");
     } catch (error) {
@@ -48,12 +50,12 @@ const Create = () => {
           <div className="titleTask">
             <img src={edit} alt="" />
             <input
+              accept="image/*"
               type="file"
+              name="image"
               id="taskTitle"
               placeholder="select image"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              required
+              onChange={(e) => setImage(e.target.files[0])}
             />
           </div>
 
@@ -85,16 +87,15 @@ const Create = () => {
           </div>
           <div className="descripTion">
             <img src={edit} alt="" />
-            <input
-              type="text"
+            <textarea
+              name=""
               id="describe"
-              placeholder="Write your story......."
+              cols="30"
+              rows="10"
               value={story}
               onChange={(e) => setStory(e.target.value)}
-              required
-            />
+            ></textarea>
           </div>
-
           <div className="Btndone">
             <button type="submit" className="btnDone">
               Publish Story

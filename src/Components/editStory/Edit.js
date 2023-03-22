@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Navbar2 from "../Navbar2/Navbar2";
 import "./Edit.css";
+import edit from "../../img/edit.svg";
+
 
 const Edit = () => {
   const [title, setTitle] = useState();
   const [tags, setTags] = useState();
   const [story, setStory] = useState();
   const { userId } = useParams();
+  const [image, setImage] = useState(null);
 
   const url = `http://localhost:9000/api/v1/post/${userId}`;
   const token = JSON.parse(localStorage.getItem("token"));
@@ -18,33 +21,39 @@ const Edit = () => {
     const res = await fetch(url, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    const {data: {title, tags, story} }= await res.json();
-  
-    setTitle(title)
-    setTags(tags)
-    setStory(story)
+    const data = await res.json();
+
+    setTitle(data.title);
+    setTags(data.tags);
+    setStory(data.story);
   };
 
   useEffect(() => {
-    console.log('in the useeffcet');
     editPost();
-  });
+  }, []);
 
-  const handleUpdate = async (id) => {
-    const res = await fetch(url, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ title, tags, story }),
-    });
+  const handleUpdate = async () => {
+    try {
+      const res = await fetch(url, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ title, tags, story, image })
+        
+      });
 
-    const data = await res.json();
-    console.log(data);
+      const data = await res.json();
+      console.log(data);
 
-    redirect("/mystories");
-  };
+      redirect("/mystories");
+    } catch (error) {
+      console.log(error);
+    }
+ };
+
+
   return (
     <div>
       <Navbar2 />
@@ -78,12 +87,14 @@ const Edit = () => {
           </div>
           <div className="descripTion">
             <label htmlFor="describe">Update your story.......</label>
-            <input
-              type="text"
+            <textarea
+              name=""
               id="describe"
+              cols="30"
+              rows="10"
               value={story}
               onChange={(e) => setStory(e.target.value)}
-            />
+            ></textarea>
           </div>
           <div className="Btndone">
             <button type="submit" className="btnDone" onClick={handleUpdate}>

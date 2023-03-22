@@ -4,7 +4,7 @@ import "../Getstarted/Getstarted.css";
 import Navbar from "../Navbar/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 
-const Signin = () => {
+const Signin = ({dataName}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -21,9 +21,10 @@ const Signin = () => {
       body: JSON.stringify({ email, password }),
     });
     const data = await res.json();
-    console.log(data);
+
     if (data.token) {
       localStorage.setItem("token", JSON.stringify(data.token));
+      localStorage.setItem("dataName", JSON.stringify(dataName))
       redirect("/welcome");
     }
     if (data.errors) {
