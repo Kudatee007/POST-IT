@@ -4,7 +4,6 @@ import Navbar2 from "../Navbar2/Navbar2";
 import "./Edit.css";
 import edit from "../../img/edit.svg";
 
-
 const Edit = () => {
   const [title, setTitle] = useState();
   const [tags, setTags] = useState();
@@ -12,7 +11,8 @@ const Edit = () => {
   const { userId } = useParams();
   const [image, setImage] = useState(null);
 
-  const url = `http://localhost:9000/api/v1/post/${userId}`;
+  const url = `https://post-it-blogapp.onrender.com/${userId}`;
+
   const token = JSON.parse(localStorage.getItem("token"));
 
   const redirect = useNavigate();
@@ -40,8 +40,7 @@ const Edit = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ title, tags, story, image })
-        
+        body: JSON.stringify({ title, tags, story, image }),
       });
 
       const data = await res.json();
@@ -51,8 +50,7 @@ const Edit = () => {
     } catch (error) {
       console.log(error);
     }
- };
-
+  };
 
   return (
     <div>

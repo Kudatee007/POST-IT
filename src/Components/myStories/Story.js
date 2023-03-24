@@ -31,7 +31,8 @@ const Story = () => {
   const redirect = useNavigate();
 
   const handleDelete = (id) => {
-    const url = `http://localhost:9000/api/v1/post/${id}`;
+    const url = `https://post-it-blogapp.onrender.com/api/v1/post/${id}`;
+
     fetch(url, {
       method: "DELETE",
       headers: {

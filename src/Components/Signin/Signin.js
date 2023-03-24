@@ -4,13 +4,13 @@ import "../Getstarted/Getstarted.css";
 import Navbar from "../Navbar/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 
-const Signin = ({dataName}) => {
+const Signin = ({ dataName }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const url = "http://localhost:9000/api/v1/login";
+  const url = "https://post-it-blogapp.onrender.com/api/v1/login";
   const redirect = useNavigate();
 
   const loginUser = async (e) => {
@@ -24,7 +24,7 @@ const Signin = ({dataName}) => {
 
     if (data.token) {
       localStorage.setItem("token", JSON.stringify(data.token));
-      localStorage.setItem("dataName", JSON.stringify(dataName))
+      localStorage.setItem("dataName", JSON.stringify(dataName));
       redirect("/welcome");
     }
     if (data.errors) {

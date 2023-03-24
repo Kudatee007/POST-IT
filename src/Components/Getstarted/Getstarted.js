@@ -8,13 +8,13 @@ const Getstarted = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const url = "http://localhost:9000/api/v1/register";
+  const url = "https://post-it-blogapp.onrender.com/api/v1/register";
 
   const redirect = useNavigate();
 
   const createUser = async (e) => {
     e.preventDefault();
-    
+
     try {
       const res = await fetch(url, {
         method: "POST",

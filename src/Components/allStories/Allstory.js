@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./Allstory.css";
 import scrabble from "../../img/srabblepics.svg";
-import rectangle from "../../img/Rectangle 42.svg";
-import kudat from "../../img/kudat.svg";
 import Navbar2 from "../Navbar2/Navbar2";
 import { Link } from "react-router-dom";
 
 const Allstory = () => {
-  const url = "http://localhost:9000/api/v1/post";
+  const url = "https://post-it-blogapp.onrender.com/api/v1/post";
   const [posts, setPosts] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
@@ -22,7 +20,6 @@ const Allstory = () => {
     const data = await res.json();
     setLoading(false);
     setPosts(data.post);
-    console.log(data);
   };
 
   useEffect(() => {

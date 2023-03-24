@@ -10,7 +10,8 @@ const Create = () => {
   const [tags, setTags] = useState("");
   const [image, setImage] = useState(null);
 
-  const url = "http://localhost:9000/api/v1/post";
+  const url = "https://post-it-blogapp.onrender.com/api/v1/post";
+
   const token = JSON.parse(localStorage.getItem("token"));
 
   const redirect = useNavigate();

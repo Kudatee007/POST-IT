@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Welcome.css";
 import scrabble from "../../img/srabblepics.svg";
 import Navbar from "../Navbar2/Navbar2";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Welcome = () => {
-  // const username = JSON.parse(localStorage.getItem("dataName"));
+ 
 
   return (
     <div>
